@@ -7,7 +7,24 @@ public interface BSTInterface
 	// returns true if there are no nodes in the tree and false if there is at least one node in the tree
 
 	public void add(Comparable newVal);
-	// Creates a new node to store the value being sent then adds the node to the tree in the correct place (remember all left children are less than or equal to their parent and all right children are greater than their parent).  
+		if(this.root == null){
+			root= new TreeNode(newVal);
+		}
+		Else 
+			addHelper(newVal, this.root)
+		
+		private void addHelper(Object val, TreeNode parent){
+			if(val <= parent.root)
+				if(parent.getLeft() == null)
+					parent.setLeft(val);
+				else
+					addHelper(val, parent.getLeft());
+			else
+				if(parent.getRight() == null)
+					parent.setRight(val);
+				else
+					addHelper(val,parent.getRight());
+		}//end addHelper
 
 	public boolean find(Comparable toFind);
 	// searches through the tree to determine if the object being passed is a current element in the tree if it is, return true, otherwise, return false
@@ -20,6 +37,7 @@ public interface BSTInterface
 
 	public void printInOrder();
 	// prints the tree using an In Order traversal - recursion
+	
 
 	public void printPreOrder();
 	// prints the tree using a Pre Order traversal - recursion
