@@ -17,17 +17,17 @@ public class BST implements BSTInterface{
 			addHelper(newVal, this.root);
 	}//end add 
 		
-	private void addHelper(Object val, TreeNode parent){
+	private void addHelper(Comparable val, TreeNode parent){
 		if(val.compareTo(parent.getValue()) < 0)
 			if(parent.getLeft() == null){
-        		parent.left = new TreeNode(val);
+        		parent.setLeft(val);
       			size++;
     		}//end if
 			else
 				addHelper(val, parent.getLeft());
 		else
 			if(parent.getRight() == null){
-				parent.right = new TreeNode(val);
+				parent.setRight(val);
 				size++;
 			}//end if 
 			else
@@ -35,7 +35,6 @@ public class BST implements BSTInterface{
 		}//end addHelper
 
 	public void printInOrder(){
-	// prints the tree using an In Order traversal - recursion
 		if(root!=null){
 			printInHelper(root.getLeft());
 			System.out.print(root.getValue());
