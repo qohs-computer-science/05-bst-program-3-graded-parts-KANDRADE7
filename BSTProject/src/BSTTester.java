@@ -27,15 +27,15 @@ Binary search tree
 
     //test all traversals
     //inorder
-    System.out.println("In order: ");
+    System.out.print("In order: ");
     tree.printInOrder();
 
      //pre order
-    System.out.println("Pre order: ");
+    System.out.print("Pre order: ");
     tree.printPreOrder();
 
      //post order
-    System.out.println("Post order: ");
+    System.out.print("Post order: ");
     tree.printPostOrder();
 
     

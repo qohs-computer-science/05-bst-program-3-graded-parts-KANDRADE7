@@ -43,34 +43,37 @@ public class BST implements BSTInterface{
 		}//end addHelper
 
 	public void printInOrder(){
+		//in order - left, root, right
 		if(root!=null){
 			printInHelper(root.getLeft());
 			System.out.print(root.getValue());
 			printInHelper(root.getRight());
 		}//end if
+		System.out.println();
 	}//end inorder traversal 
 
 	private void printInHelper(TreeNode subroot){
 		if(subroot!= null){
 			printInHelper(subroot.getLeft());
-			System.out.print(subroot.getValue());
+			System.out.print(subroot.getValue() + " ");
 			printInHelper(subroot.getRight());
 		}//end if
 	}//end helper
 
 	
 	public void printPreOrder(){
-		// prints the tree using a Pre Order traversal - recursion
+		// pre order - root, left, right
 		if(root!=null){
-			System.out.println(root.getValue());
+			System.out.print(root.getValue());
 			printPreHelper(root.getLeft()); 
 			printPreHelper(root.getRight());
 		}//end if
+		System.out.println();
 	}//end preOrder traversal 
 
 	private void printPreHelper(TreeNode subroot){
 		if(subroot!=null){
-			System.out.println(subroot.getValue());
+			System.out.print(subroot.getValue() + " ");
 			printPreHelper(subroot.getLeft());
 			printPreHelper(subroot.getRight());
 		}//end if
@@ -78,11 +81,11 @@ public class BST implements BSTInterface{
 
 	
 	public void printPostOrder(){
-	// prints the tree using a Post Order traversal – recursion
+	// post order - left, right, root 
 		if(root!= null){
 			printPostHelper(root.getLeft());
 			printPostHelper(root.getRight());
-			System.out.print(root.getValue());
+			System.out.print(root.getValue() + " ");
 		}//end if
 	}//end postorder traversal
 
@@ -90,7 +93,7 @@ public class BST implements BSTInterface{
 			if(subroot!=null){
 				printPostHelper(subroot.getLeft());
 				printPostHelper(subroot.getRight());
-				System.out.print(subroot.getValue());
+				System.out.print(subroot.getValue() + " ");
 			}//end if
 		}//end helper
 
