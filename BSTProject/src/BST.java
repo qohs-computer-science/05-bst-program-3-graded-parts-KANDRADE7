@@ -176,16 +176,16 @@ public class BST implements BSTInterface{
     public boolean find(Comparable toFind){
 		if(root==null)
 			return false;
-		if(toFind <= root)
-			findHelper(toFind, root,getLeft());
+		if(toFind.compareTo(root)<=0)
+			findHelper(toFind, root.getLeft());
 		else
 			findHelper(toFind, root.getRight());
 	}//end find method
 
-	private boolean findHelper(Object value, TreeNode subroot){
+	private boolean findHelper(Comparable value, TreeNode subroot){
 		if(subroot == value)
 			return true;
-		else if(value <= subroot)
+		else if(value.compareTo(subroot) <= 0)
 			findHelper(value, subroot.getLeft());
 		else
 			findHelper(value, subroot.getRight());

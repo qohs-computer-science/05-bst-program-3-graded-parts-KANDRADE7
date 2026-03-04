@@ -38,7 +38,8 @@ Binary search tree
     System.out.print("Post order: ");
     tree.printPostOrder();
 
-    //testing delete method
+    //testing find method
+    System.out.println(tree.find("A"));
 
     
  }//end main
