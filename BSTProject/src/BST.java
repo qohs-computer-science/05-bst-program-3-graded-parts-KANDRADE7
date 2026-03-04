@@ -8,26 +8,34 @@ public class BST implements BSTInterface{
         size = 0;
     }//end constructor
 
-    public void add(Comparable newVal){
-		if(this.root == null){
+	public int size(){
+		return size;
+	}//end size 
+
+    public boolean isEmpty(){
+		return root ==null; 
+	}//end isEmpty
+	
+	public void add(Comparable newVal){
+		if(root == null){
 			root = new TreeNode(newVal);
-      size++;
+     		size++;
 		}//end if
 		else 
-			addHelper(newVal, this.root);
+			addHelper(newVal, root);
 	}//end add 
 		
 	private void addHelper(Comparable val, TreeNode parent){
 		if(val.compareTo(parent.getValue()) < 0)
 			if(parent.getLeft() == null){
-        		parent.setLeft(val);
+        		parent.setLeft(new TreeNode(val));
       			size++;
     		}//end if
 			else
 				addHelper(val, parent.getLeft());
 		else
 			if(parent.getRight() == null){
-				parent.setRight(val);
+				parent.setRight(new TreeNode(val));
 				size++;
 			}//end if 
 			else
