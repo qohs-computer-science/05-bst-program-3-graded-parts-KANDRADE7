@@ -173,6 +173,24 @@ public class BST implements BSTInterface{
 		}//end search right
 	}//end deleteHelper  
 
+    public boolean find(Comparable toFind){
+		if(root==null)
+			return false;
+		if(toFind <= root)
+			findHelper(toFind, root,getLeft());
+		else
+			findHelper(toFind, root.getRight());
+	}//end find method
+
+	private boolean findHelper(Object value, TreeNode subroot){
+		if(subroot == value)
+			return true;
+		else if(value <= subroot)
+			findHelper(value, subroot.getLeft());
+		else
+			findHelper(value, subroot.getRight());
+	}//end findHelper
+		
 
 	public void printInOrder(){
 		//in order - left, root, right
