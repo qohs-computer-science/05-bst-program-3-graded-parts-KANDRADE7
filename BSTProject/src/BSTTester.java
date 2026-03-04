@@ -38,6 +38,8 @@ Binary search tree
     System.out.print("Post order: ");
     tree.printPostOrder();
 
+    //testing delete method
+
     
  }//end main
  }//end BSTTester

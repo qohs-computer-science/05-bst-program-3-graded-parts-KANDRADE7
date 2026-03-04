@@ -45,6 +45,7 @@ public class BST implements BSTInterface{
 	//DELETE METHOD
 	public boolean delete(Comparable old){
 		//handle all cases where the node being deleted is the root. directly using root field
+		//case 0: tree is empty 
 		if(root==null)
 			return false;
 
@@ -55,18 +56,28 @@ public class BST implements BSTInterface{
 				root = null;
 			}//end if
 		//CASE 2: root has 1 child (LEFT ONLY)
-			if(root.getLeft()!=null && root.getRight()==null){
+			else if(root.getLeft()!=null && root.getRight()==null){
 				root = root.getLeft(); 
 			}//end if
 		//CASE 3: root has 1 child (RIGHT ONLY)
-			if(root.getLeft()==null && root.getRight()!=null){
+			else if(root.getLeft()==null && root.getRight()!=null){
 				root = root.getRight();
 			}//end if
 		//CASE 4: root has 2 children
-			if(root.getLeft()!=null && root.getRight()!=null){
-				//working on
+			else if(root.getLeft()!=null && root.getRight()!=null){
+				TreeNode smallestRightNode = small;
+				TreeNode small = small.getRight(); 
+				while(small.getLeft()!=null){
+					smallestRightNode = small;
+					small = small.getLeft();
+				}//end while loop
+				root.setValue(small.getValue()); //sets root value to smallest node in right subtree 
+				//remove 
+				if(smallestRightNode == root)
+					smallestRightNode.setRight(small);
+				else
+					smallestRightNode.setLeft(small);
 			}//end if
-
 			size--;
 			return true; 
 		}//end master if
@@ -74,10 +85,93 @@ public class BST implements BSTInterface{
 			return deleteHelper(root,old);
 	}//end delete method 
 
-	private boolean deleteHelper(Comparable old){
+	private boolean deleteHelper(TreeNode parent, Comparable old){
 		//handles all cases where the node being deleted is not the root. always looking ahead at parent's children
-		
-	}//end helper method 
+		if(old.compareTo(parent) <= 0){
+			//search left 
+			if(parent.getLeft() == null)
+				return false;
+
+			if(old == parent.getLeft().getValue()){
+				TreeNode removeNode = parent.getLeft();
+
+				//CASE 1: no children
+				if(removeNode.getLeft()==null && removeNode.getRight()==null)
+					parent.setLeft(null);
+
+				//CASE 2: 1 child (left only)
+				else if(removeNode.getLeft()!=null && removeNode.getRight()==null)
+					parent.setLeft(removeNode.getLeft());
+
+				//CASE 3: 1 child (right only)
+				else if(removeNode.getLeft()==null && removeNode.getRight()!=null)
+					parent.setLeft(removeNode.getRight());
+
+				//CASE 4: 2 children 
+				else{
+					TreeNode parentOfReplacement = removeNode;
+					TreeNode replacement = removeNode.getRight();
+					while(replacement.getLeft()!=null){
+						parentOfReplacement = replacement;
+						replacement = replacement.getLeft();
+					}//end while 
+					removeNode.setValue(replacement.getValue());
+
+					if(parentOfReplacement == removeNode)
+						parentOfReplacement.setRight(replacement.getRight());
+					else
+						parentOfReplacement.setLeft(replacement.getRight());
+				}//end else
+				size--;
+				return true;
+			}//end inner if 		
+		else
+			return deleteHelper(parent.getLeft(), old);
+		}//end search left 
+
+		//search right 
+		else {
+			if(parent.getRight()==null)
+				return false;
+
+			if(old == parent.getRight().getValue()){
+				TreeNode toDelete = parent.getRight();
+
+				//case 1: no children
+				if(toDelete.getLeft()==null && toDelete.getRight() ==null)
+					parent.setRight(null);
+
+				//case 2: 1 child (LEFT ONLY)
+				else if(toDelete.getLeft()!=null && toDelete.getRight()==null)
+					parent.setRight(toDelete.getLeft())
+
+				//case 3: 1 child (RIGHT ONLY)
+				else if(toDelete.getLeft()==null && toDelete.getRight()!=null)
+					parent.setRight(toDelete.getRight());
+
+				//case 4: 2 children
+				else{
+					TreeNode parentOfReplacement = toDelete;
+					TreeNode replacement = toDelete.getRight();
+					while(replacement.getLeft()!=null){
+						parentOfReplacement = replacement; 
+						replacement = replacement.getLeft();
+					}//end while
+
+					toDelete.setLeft(replacement);
+
+					if(parentOfReplacement == toDelete)
+						parentOfReplacement.setRight(replacement.getRight());
+					else
+						parentOfReplacement.setLeft(replacement.getRight());
+				}//end else
+				size--;
+				return true;
+			}//end inner if
+			else
+				return deleteHelper(parent.getRight(),old);
+		}//end search right
+	}//end deleteHelper  
 
 
 	public void printInOrder(){
