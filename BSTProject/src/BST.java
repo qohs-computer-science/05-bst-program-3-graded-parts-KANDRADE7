@@ -44,6 +44,7 @@ public class BST implements BSTInterface{
 
 	//DELETE METHOD
 	public boolean delete(Comparable old){
+		//handle all cases where the node being deleted is the root. directly using root field
 		if(root==null)
 			return false;
 		else{
@@ -51,7 +52,9 @@ public class BST implements BSTInterface{
 			return false; 
 		}//end else 
 	}//end delete method 
-	private TreeNode
+	private boolean deleteHelper(Comparable old){
+		
+	}
 
 	public void printInOrder(){
 		//in order - left, root, right
