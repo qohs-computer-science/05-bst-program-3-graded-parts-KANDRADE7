@@ -43,6 +43,8 @@ Binary search tree
     System.out.println(tree.find("O"));
     System.out.println(tree.find("Z"));
 
+    tree.delete("O");
+
 
     
  }//end main
