@@ -47,14 +47,38 @@ public class BST implements BSTInterface{
 		//handle all cases where the node being deleted is the root. directly using root field
 		if(root==null)
 			return false;
-		else{
-			root=deleteHelper(root,old);
-			return false; 
-		}//end else 
+
+	//root's value is old
+		if(root ==old){
+		//CASE 1: root has no children
+			if(root.getLeft()==null && root.getRight()==null){
+				root = null;
+			}//end if
+		//CASE 2: root has 1 child (LEFT ONLY)
+			if(root.getLeft()!=null && root.getRight()==null){
+				root = root.getLeft(); 
+			}//end if
+		//CASE 3: root has 1 child (RIGHT ONLY)
+			if(root.getLeft()==null && root.getRight()!=null){
+				root = root.getRight();
+			}//end if
+		//CASE 4: root has 2 children
+			if(root.getLeft()!=null && root.getRight()!=null){
+				//working on
+			}//end if
+
+			size--;
+			return true; 
+		}//end master if
+		else
+			return deleteHelper(root,old);
 	}//end delete method 
+
 	private boolean deleteHelper(Comparable old){
+		//handles all cases where the node being deleted is not the root. always looking ahead at parent's children
 		
-	}
+	}//end helper method 
+
 
 	public void printInOrder(){
 		//in order - left, root, right
