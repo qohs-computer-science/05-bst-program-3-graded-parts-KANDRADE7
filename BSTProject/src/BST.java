@@ -175,14 +175,7 @@ public class BST implements BSTInterface{
 	}//end deleteHelper  
 
     public boolean find(Comparable toFind){
-		if(root==null)
-			return false;
-		if(toFind.compareTo(root.getValue())==0)
-			return true;
-		if(toFind.compareTo(root.getValue()) <0)
-			return findHelper(toFind, root.getLeft());
-		else
-			return findHelper(toFind, root.getRight());
+		return findHelper(toFind, root);
 	}//end find method
 
 	private boolean findHelper(Comparable value, TreeNode subroot){
@@ -193,7 +186,7 @@ public class BST implements BSTInterface{
 		else if(value.compareTo(subroot.getValue()) < 0)
 			return findHelper(value, subroot.getLeft());
 		else
-			return indHelper(value, subroot.getRight());
+			return findHelper(value, subroot.getRight());
 	}//end findHelper
 		
 

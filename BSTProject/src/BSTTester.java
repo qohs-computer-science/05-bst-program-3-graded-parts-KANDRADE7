@@ -39,7 +39,10 @@ Binary search tree
     tree.printPostOrder();
 
     //testing find method
-    System.out.println(tree.find("A"));
+    System.out.println("\n" + tree.find("A"));
+    System.out.println(tree.find("O"));
+    System.out.println(tree.find("Z"));
+
 
     
  }//end main
