@@ -3,9 +3,9 @@ import java.lang.Comparable;
 public class BST implements BSTInterface{
     private TreeNode root;
     private int size;
-      public BST(){
-        root = null;
-        size = 0;
+    public BST(){
+    	root = null;
+    	size = 0;
     }//end constructor
 
 	public int size(){
@@ -16,6 +16,7 @@ public class BST implements BSTInterface{
 		return root ==null; 
 	}//end isEmpty
 	
+	//ADD METHOD
 	public void add(Comparable newVal){
 		if(root == null){
 			root = new TreeNode(newVal);
@@ -23,8 +24,7 @@ public class BST implements BSTInterface{
 		}//end if
 		else 
 			addHelper(newVal, root);
-	}//end add 
-		
+	}//end add 	
 	private void addHelper(Comparable val, TreeNode parent){
 		if(val.compareTo(parent.getValue()) < 0)
 			if(parent.getLeft() == null){
@@ -41,6 +41,17 @@ public class BST implements BSTInterface{
 			else
 				addHelper(val,parent.getRight());
 		}//end addHelper
+
+	//DELETE METHOD
+	public boolean delete(Comparable old){
+		if(root==null)
+			return false;
+		else{
+			root=deleteHelper(root,old);
+			return false; 
+		}//end else 
+	}//end delete method 
+	private TreeNode
 
 	public void printInOrder(){
 		//in order - left, root, right
@@ -60,7 +71,6 @@ public class BST implements BSTInterface{
 		}//end if
 	}//end helper
 
-	
 	public void printPreOrder(){
 		// pre order - root, left, right
 		if(root!=null){
@@ -79,7 +89,6 @@ public class BST implements BSTInterface{
 		}//end if
 	}//end helper
 
-	
 	public void printPostOrder(){
 	// post order - left, right, root 
 		if(root!= null){
@@ -96,5 +105,4 @@ public class BST implements BSTInterface{
 				System.out.print(subroot.getValue() + " ");
 			}//end if
 		}//end helper
-
 }//end class
