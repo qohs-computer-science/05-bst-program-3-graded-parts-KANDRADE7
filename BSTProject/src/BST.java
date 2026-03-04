@@ -87,7 +87,7 @@ public class BST implements BSTInterface{
 
 	private boolean deleteHelper(TreeNode parent, Comparable old){
 		//handles all cases where the node being deleted is not the root. always looking ahead at parent's children
-		if(old.compareTo(parent) <= 0){
+		if(old.compareTo(parent.getValue()) <= 0){
 			//search left 
 			if(parent.getLeft() == null)
 				return false;
@@ -176,7 +176,7 @@ public class BST implements BSTInterface{
     public boolean find(Comparable toFind){
 		if(root==null)
 			return false;
-		if(toFind.compareTo(root)<=0)
+		if(toFind.compareTo(root.getValue())<=0)
 			findHelper(toFind, root.getLeft());
 		else
 			findHelper(toFind, root.getRight());
@@ -185,7 +185,7 @@ public class BST implements BSTInterface{
 	private boolean findHelper(Comparable value, TreeNode subroot){
 		if(subroot == value)
 			return true;
-		else if(value.compareTo(subroot) <= 0)
+		else if(value.compareTo(subroot.getValue()) <= 0)
 			findHelper(value, subroot.getLeft());
 		else
 			findHelper(value, subroot.getRight());
