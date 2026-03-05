@@ -191,6 +191,12 @@ public class BST implements BSTInterface{
 	}//end findHelper
 		
 
+	//REPLACE METHOD
+	public boolean replace(Comparable old, Comparable toAdd){
+
+	}//end replace method
+
+	//TRAVERSALS METHODS
 	public void printInOrder(){
 		//in order - left, root, right
 		if(root!=null){
