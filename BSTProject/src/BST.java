@@ -50,7 +50,7 @@ public class BST implements BSTInterface{
 			return false;
 
 	//root's value is old
-		if(root ==old){
+		if(old.compareTo(root.getValue())==0){
 		//CASE 1: root has no children
 			if(root.getLeft()==null && root.getRight()==null){
 				root = null;
@@ -65,8 +65,9 @@ public class BST implements BSTInterface{
 			}//end if
 		//CASE 4: root has 2 children
 			else if(root.getLeft()!=null && root.getRight()!=null){
-				TreeNode smallestRightNode = small;
-				TreeNode small = small.getRight(); 
+				//find the smallest right node to adjust tree correctly
+				TreeNode smallestRightNode = root;
+				TreeNode small = root.getRight(); 
 				while(small.getLeft()!=null){
 					smallestRightNode = small;
 					small = small.getLeft();
@@ -74,9 +75,9 @@ public class BST implements BSTInterface{
 				root.setValue(small.getValue()); //sets root value to smallest node in right subtree 
 				//remove 
 				if(smallestRightNode == root)
-					smallestRightNode.setRight(small);
+					smallestRightNode.setRight(small.getRight());
 				else
-					smallestRightNode.setLeft(small);
+					smallestRightNode.setLeft(small.getRight());
 			}//end if
 			size--;
 			return true; 
@@ -93,7 +94,7 @@ public class BST implements BSTInterface{
 			if(parent.getLeft() == null)
 				return false;
 
-			if(old == parent.getLeft().getValue()){
+			if(old.compareTo(parent.getLeft().getValue())==0){
 				TreeNode removeNode = parent.getLeft();
 
 				//CASE 1: no children
@@ -135,7 +136,7 @@ public class BST implements BSTInterface{
 			if(parent.getRight()==null)
 				return false;
 
-			if(old == parent.getRight().getValue()){
+			if(old.compareTo(parent.getRight().getValue())==0){
 				TreeNode toDelete = parent.getRight();
 
 				//case 1: no children
@@ -159,7 +160,7 @@ public class BST implements BSTInterface{
 						replacement = replacement.getLeft();
 					}//end while
 
-					toDelete.setLeft(replacement);
+					toDelete.setLeft(replacement.getValue());
 
 					if(parentOfReplacement == toDelete)
 						parentOfReplacement.setRight(replacement.getRight());

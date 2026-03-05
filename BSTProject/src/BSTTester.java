@@ -44,7 +44,17 @@ Binary search tree
     System.out.println(tree.find("Z"));
 
     tree.delete("O");
+    System.out.println("Tree after removing letter O");
+    System.out.print("In order: ");
+    tree.printInOrder();
 
+     //pre order
+    System.out.print("Pre order: ");
+    tree.printPreOrder();
+
+     //post order
+    System.out.print("Post order: ");
+    tree.printPostOrder();
 
     
  }//end main
