@@ -145,7 +145,7 @@ public class BST implements BSTInterface{
 
 				//case 2: 1 child (LEFT ONLY)
 				else if(toDelete.getLeft()!=null && toDelete.getRight()==null)
-					parent.setRight(toDelete.getLeft())
+					parent.setRight(toDelete.getLeft());
 
 				//case 3: 1 child (RIGHT ONLY)
 				else if(toDelete.getLeft()==null && toDelete.getRight()!=null)
