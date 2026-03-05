@@ -26,38 +26,44 @@ Binary search tree
     tree.add("E");
 
     //test all traversals
-    //inorder
+    System.out.println("Intial tree:");
     System.out.print("In order: ");
     tree.printInOrder();
-
-     //pre order
     System.out.print("Pre order: ");
     tree.printPreOrder();
-
-     //post order
     System.out.print("Post order: ");
     tree.printPostOrder();
+    System.out.println("\nSize of tree: " + tree.size());
 
     //testing find method
-    System.out.println("\n" + tree.find("A"));
+    System.out.println("\n\nTesting find method:");
     System.out.println(tree.find("O"));
-    System.out.println(tree.find("Z"));
+    System.out.println(tree.find("E"));
+    System.out.println(tree.find("R"));
+    System.out.println(tree.find("Q"));
 
+    //testing delete method 
     tree.delete("O");
-    System.out.println("Tree after removing letter O");
+    System.out.println("\nTree after removing letter O");
     System.out.print("In order: ");
     tree.printInOrder();
-
-     //pre order
     System.out.print("Pre order: ");
     tree.printPreOrder();
-
-     //post order
     System.out.print("Post order: ");
     tree.printPostOrder();
+    System.out.println("\nSize of tree: " + tree.size());
+    System.out.println(tree.find("O"));
 
-    //check size methods
-    System.out.println("\n" + tree.size());
+    tree.delete("E");
+    System.out.println("\nTree after removing letter E");
+    System.out.print("In order: ");
+    tree.printInOrder();
+    System.out.print("Pre order: ");
+    tree.printPreOrder();
+    System.out.print("Post order: ");
+    tree.printPostOrder();
+    System.out.println("\nSize of tree: " + tree.size());
+    System.out.println(tree.find("E"));
     
  }//end main
  }//end BSTTester
