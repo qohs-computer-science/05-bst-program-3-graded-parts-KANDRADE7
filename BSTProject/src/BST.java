@@ -193,7 +193,15 @@ public class BST implements BSTInterface{
 
 	//REPLACE METHOD
 	public boolean replace(Comparable old, Comparable toAdd){
-
+		if(find(old)){
+			delete(old);
+			add(toAdd);
+			return true;
+		}//end if
+		else{
+			add(toAdd);
+			return false;
+		}//end else
 	}//end replace method
 
 	//TRAVERSALS METHODS
