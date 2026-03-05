@@ -209,7 +209,7 @@ public class BST implements BSTInterface{
 		//in order - left, root, right
 		if(root!=null){
 			printInHelper(root.getLeft());
-			System.out.print(root.getValue());
+			System.out.print(root.getValue() + " ");
 			printInHelper(root.getRight());
 		}//end if
 		System.out.println();
@@ -226,7 +226,7 @@ public class BST implements BSTInterface{
 	public void printPreOrder(){
 		// pre order - root, left, right
 		if(root!=null){
-			System.out.print(root.getValue());
+			System.out.print(root.getValue() + " ");
 			printPreHelper(root.getLeft()); 
 			printPreHelper(root.getRight());
 		}//end if

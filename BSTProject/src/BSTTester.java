@@ -56,6 +56,8 @@ Binary search tree
     System.out.print("Post order: ");
     tree.printPostOrder();
 
+    //check size methods
+    System.out.println("\n" + tree.size());
     
  }//end main
  }//end BSTTester
