@@ -160,7 +160,7 @@ public class BST implements BSTInterface{
 						replacement = replacement.getLeft();
 					}//end while
 
-					toDelete.setLeft(replacement.getValue());
+					toDelete.setValue(replacement.getValue());
 
 					if(parentOfReplacement == toDelete)
 						parentOfReplacement.setRight(replacement.getRight());
