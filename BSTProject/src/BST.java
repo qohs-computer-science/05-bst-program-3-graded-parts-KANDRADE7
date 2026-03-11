@@ -248,6 +248,7 @@ public class BST implements BSTInterface{
 			printPostHelper(root.getRight());
 			System.out.print(root.getValue() + " ");
 		}//end if
+		System.out.println();
 	}//end postorder traversal
 
 	private void printPostHelper(TreeNode subroot){
