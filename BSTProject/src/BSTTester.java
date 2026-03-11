@@ -48,11 +48,11 @@ Binary search tree
     System.out.println("Find nonexistent node \"Z\": " + tree.find("Z"));
 
 
-    //testing delete method 
+    //testing delete method with mini trees
     System.out.println("\n\nTesting delete method:");
     System.out.println("Deleting a nonexistent value \"Z\": " + tree.delete("Z"));
     
-    //delete a lead node (no children)
+    //case 1: delete a leaf node (no children)
     BST noChildren = new BST();
     noChildren.add("A");
     System.out.println("\nCase 1: delete node with no children");
@@ -72,8 +72,8 @@ Binary search tree
     System.out.print("Post order: ");
     noChildren.printPostOrder();
 
-    //delete a node with one child (left only)
-    System.out.println("\nCase 2: delete node with 1 children (left)");
+    //case 2: delete a node with one child (left only)
+    System.out.println("\nCase 2: delete node with 1 children (left only)");
     BST smallTree = new BST();
     smallTree.add("M");
     smallTree.add("G");
@@ -93,8 +93,8 @@ Binary search tree
     System.out.print("Post order: ");
     smallTree.printPostOrder();
 
-    //delete node with 1 child (right)
-    System.out.println("\nCase 3: delete node with 1 children (right)");
+    //case 3: delete node with 1 child (right)
+    System.out.println("\nCase 3: delete node with 1 children (right only)");
     BST mini = new BST();
     mini.add("M");
     mini.add("T");
@@ -113,6 +113,58 @@ Binary search tree
     mini.printPreOrder();
     System.out.print("Post order: ");
     mini.printPostOrder();
-    
+
+    //case 4: delete a node with 2 children 
+    System.out.println("\nCase 4: delete node with 2 children");
+    BST mini2 = new BST();
+    mini2.add("M");
+    mini2.add("G");
+    mini2.add("T");
+    mini2.add("A");
+    mini2.add("Q");
+    mini2.add("Z");
+    System.out.println("{---BEFORE---}");
+    System.out.print("In order: ");
+    mini2.printInOrder();
+    System.out.print("Pre order: ");
+    mini2.printPreOrder();
+    System.out.print("Post order: ");
+    mini2.printPostOrder();
+    System.out.println("\n{---AFTER---}");
+    mini2.delete("M");
+    System.out.print("In order: ");
+    mini2.printInOrder();
+    System.out.print("Pre order: ");
+    mini2.printPreOrder();
+    System.out.print("Post order: ");
+    mini2.printPostOrder();
+
+
+    //test replace method 
+    System.out.println("\nTesting replace method: ");
+    BST replaceTree = new BST();
+    replaceTree.add("L");
+    replaceTree.add("M");
+    replaceTree.add("N");
+    replaceTree.add("O");
+    replaceTree.add("P");
+    replaceTree.add("Q");
+    System.out.println("{---BEFORE---}");
+    System.out.print("In order: ");
+    replaceTree.printInOrder();
+    System.out.print("Pre order: ");
+    replaceTree.printPreOrder();
+    System.out.print("Post order: ");
+    replaceTree.printPostOrder();
+    replaceTree.replace("Q", "K");
+    System.out.println("\n{---AFTER---}");
+    System.out.println("Q replaced with K");
+    System.out.print("In order: ");
+    replaceTree.printInOrder();
+    System.out.print("Pre order: ");
+    replaceTree.printPreOrder();
+    System.out.print("Post order: ");
+    replaceTree.printPostOrder();
+
  }//end main
  }//end BSTTester
