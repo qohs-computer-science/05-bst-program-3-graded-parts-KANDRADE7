@@ -94,7 +94,7 @@ Binary search tree
     smallTree.printPostOrder();
 
     //delete node with 1 child (right)
-    System.out.println("\nCase 2: delete node with 1 children (left)");
+    System.out.println("\nCase 3: delete node with 1 children (right)");
     BST mini = new BST();
     mini.add("M");
     mini.add("T");
