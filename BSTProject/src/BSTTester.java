@@ -65,6 +65,7 @@ Binary search tree
     noChildren.printPostOrder();
     noChildren.delete("A");
     System.out.println("\n{---AFTER---}");
+    System.out.println("A is deleted");
     System.out.print("In order: ");
     noChildren.printInOrder();
     System.out.print("Pre order: ");
@@ -86,6 +87,7 @@ Binary search tree
     smallTree.printPostOrder();
     System.out.println("\n{---AFTER---}");
     smallTree.delete("M");
+    System.out.println("M is deleted");
     System.out.print("In order: ");
     smallTree.printInOrder();
     System.out.print("Pre order: ");
@@ -107,6 +109,7 @@ Binary search tree
     mini.printPostOrder();
     System.out.println("\n{---AFTER---}");
     mini.delete("M");
+    System.out.println("M is deleted");
     System.out.print("In order: ");
     mini.printInOrder();
     System.out.print("Pre order: ");
@@ -132,6 +135,7 @@ Binary search tree
     mini2.printPostOrder();
     System.out.println("\n{---AFTER---}");
     mini2.delete("M");
+    System.out.println("M is deleted");
     System.out.print("In order: ");
     mini2.printInOrder();
     System.out.print("Pre order: ");
